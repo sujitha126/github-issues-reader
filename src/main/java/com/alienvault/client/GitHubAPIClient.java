@@ -138,7 +138,6 @@ public class GitHubAPIClient {
         response = invokeGitHubApiForIssues(gitHubRepo, url);
         try {
             Issue[] issuesArray = new ObjectMapper().readValue(response.readEntity(String.class), Issue[].class);
-            //Sort issues in the order of created date
             issues.addAll(Arrays.asList(issuesArray));
         } catch (IOException e) {
             logger.debug("Exception occurred while DeSerializing response to Issues.", e);
